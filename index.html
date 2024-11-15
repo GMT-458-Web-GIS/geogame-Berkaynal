@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the Country</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Find the Country</h1>
+        <div class="game-setup">
+            <label for="playerName">Enter your name:</label>
+            <input type="text" id="playerName" placeholder="Your name">
+            <button id="startGame">Start Game</button>
+        </div>
+        <div id="questionContainer" style="display:none;">
+            <p id="countryQuestion"></p>
+            <p id="timer">Time left: 10 seconds</p>
+        </div>
+        <div id="map" style="display:none;"></div>
+        <div id="scoreboard" style="display:none;">
+            <p id="playerScore">Score: 0</p>
+        </div>
+        <div id="endMessage" style="display:none;">
+            <h2>Congratulations <span id="finalName"></span>, you got <span id="finalScore"></span> points!</h2>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
