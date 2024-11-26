@@ -32,4 +32,4 @@ The goal of "Find the Country" is to test players' geographic knowledge by havin
 - **Instructions Modal**: A "Instructions" button provides a detailed explanation of how to play the game, which can be toggled on or off.
 
 ## Layout Diagram
-![Layout Diagram](images/layout-diagram.png)
+![Layout Diagram](layout-diagram.png)
