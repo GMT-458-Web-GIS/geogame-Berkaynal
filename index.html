@@ -10,14 +10,39 @@
 <body>
     <div class="container">
         <h1>Find the Country</h1>
-        <div class="game-setup">
+        <div class="game-setup" id="gameSetup">
             <label for="playerName">Enter your name:</label>
             <input type="text" id="playerName" placeholder="Your name">
+            <label for="categorySelect">Select Category:</label>
+            <select id="categorySelect">
+                <option value="world">Whole World</option>
+                <option value="africa">Africa</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="americas">Americas</option>
+                <option value="oceania">Oceania</option>
+            </select>
             <button id="startGame">Start Game</button>
+            <button id="showInstructions">Instructions</button>
         </div>
+
+        <!-- Instructions Section -->
+        <div id="instructionsContainer" style="display: none;">
+            <h2>Welcome to GeoGame</h2>
+            <p>Your task is to locate countries on the map as quickly and accurately as possible!</p>
+            <h3>How to Play:</h3>
+            <ul>
+                <li>Select a category (e.g., Continents or Whole World).</li>
+                <li>For each question, click on the map to locate the country shown at the top.</li>
+                <li>You have 20 seconds to answer each question.</li>
+                <li>Earn points based on how quickly and accurately you locate the country!</li>
+            </ul>
+            <button id="closeInstructions">Close</button>
+        </div>
+
         <div id="questionContainer" style="display:none;">
             <p id="countryQuestion"></p>
-            <p id="timer">Time left: 10 seconds</p>
+            <p id="timer">Time left: 20 seconds</p>
         </div>
         <div id="map" style="display:none;"></div>
         <div id="scoreboard" style="display:none;">
