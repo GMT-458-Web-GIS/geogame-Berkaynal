@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/ATV5e7Id)
+
 # Find the Country GeoGame
 
 ## Objective
@@ -52,8 +54,10 @@ GeoGame is an interactive web-based game where players locate countries on a wor
 
 ## Event Handlers
 
+Event handlers are functions that run in response to specific user interactions, making the game interactive and dynamic. The following event handlers are implemented in the project:
+
 1. **Start Game Event**:
-   - Initializes the game and sets up the map.
+   - **Description**: This event initializes the game and sets up the map when the player clicks the "Start Game" button. It validates player input, selects a category, shuffles the countries, and displays the game interface.
    ```javascript
    startButton.addEventListener("click", function startGame() {
        playerName = playerNameInput.value.trim();
@@ -71,7 +75,7 @@ GeoGame is an interactive web-based game where players locate countries on a wor
    ```
 
 2. **Show Instructions Event**:
-   - Displays game instructions.
+   - **Description**: This event displays the instructions modal when the "Instructions" button is clicked, helping the player understand how to play the game.
    ```javascript
    showInstructionsButton.addEventListener("click", function () {
        instructionsContainer.style.display = "block";
@@ -79,7 +83,7 @@ GeoGame is an interactive web-based game where players locate countries on a wor
    ```
 
 3. **Map Click Event**:
-   - Checks if the player's guess is correct.
+   - **Description**: This event captures clicks on the map, calculates the distance to the correct location, and determines if the player’s guess is accurate.
    ```javascript
    map.on("click", function (e) {
        const distance = map.distance(e.latlng, correctCoords);
@@ -93,23 +97,74 @@ GeoGame is an interactive web-based game where players locate countries on a wor
 
 ## Closures
 
-- Used in the `startGame` function to manage game state (e.g., `score`, `questionIndex`).
+Closures are a fundamental concept in JavaScript that allow functions to access variables from an outer function even after the outer function has finished executing. In the GeoGame project, closures are used to maintain the game state (e.g., score, current question index) within the `startGame` function.
 
-## Learning from AI
+### Example of Closure:
 
-- AI tools like [ChatGPT](https://chat.openai.com/) helped with debugging, optimizing code, and integrating Leaflet.js.
+```javascript
+function startGame() {
+    let questionIndex = 0;
+    let score = 0;
+
+    function nextQuestion(countries) {
+        if (questionIndex >= countries.length) {
+            alert(`Game Over! Your score: ${score}`);
+            return;
+        }
+        const country = countries[questionIndex];
+        countryQuestion.textContent = `Locate: ${country.name}`;
+        questionIndex++;
+    }
+
+    nextQuestion(countries);
+}
+```
+
+In this example, `nextQuestion` can access `questionIndex` and `score` because it is defined within `startGame`. This helps keep game logic encapsulated and prevents global variable pollution.
 
 ## DOM Interaction
 
-- Example: Updating the question text dynamically.
-  ```javascript
-  countryQuestion.textContent = "Locate: France";
-  ```
+DOM (Document Object Model) interaction is key to updating the game interface dynamically. The GeoGame project uses JavaScript to modify elements on the page based on user actions. Here are some examples:
+
+1. **Updating the Question Text**:  
+   Displays the name of the country the player needs to locate.
+   ```javascript
+   countryQuestion.textContent = "Locate: France";
+   ```
+
+2. **Showing Instructions**:  
+   Displays the instructions modal when the player clicks the "Instructions" button.
+   ```javascript
+   instructionsContainer.style.display = "block";
+   ```
+
+3. **Displaying Game Elements**:  
+   Shows the map, scoreboard, and question container when the game starts.
+   ```javascript
+   mapElement.style.display = "block";
+   scoreboard.style.display = "block";
+   questionContainer.style.display = "block";
+   ```
 
 ## Deployment
 
-The project is hosted on GitHub Pages. [View the Live Demo](https://gmt-458-web-gis.github.io/geogame-Berkaynal/).
+The GeoGame project is deployed using **GitHub Pages**, making it accessible via a public URL. Here’s how the deployment process works:
+
+1. **GitHub Repository**:  
+   All project files (HTML, CSS, JavaScript, and assets) are stored in a GitHub repository.
+
+2. **GitHub Pages Setup**:
+   - In your repository, go to **Settings** > **Pages**.
+   - Select the branch (usually `main` or `master`) and the folder (typically `/root`).
+   - GitHub automatically generates a live website from your repository.
+
+3. **Live URL**:  
+   The project is available at:  
+   [https://gmt-458-web-gis.github.io/geogame-Berkaynal/](https://gmt-458-web-gis.github.io/geogame-Berkaynal/)
+
+This deployment method ensures the game is easily accessible and can be shared with others.
 
 ## Layout Diagram
 
 ![Layout Diagram](layout-diagram.png)
+
