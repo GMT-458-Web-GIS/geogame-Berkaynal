@@ -58,42 +58,13 @@ Event handlers are functions that run in response to specific user interactions,
 
 1. **Start Game Event**:
    - **Description**: This event initializes the game and sets up the map when the player clicks the "Start Game" button. It validates player input, selects a category, shuffles the countries, and displays the game interface.
-   ```javascript
-   startButton.addEventListener("click", function startGame() {
-       playerName = playerNameInput.value.trim();
-       if (playerName === "") {
-           alert("Please enter your name to start the game!");
-           return;
-       }
-
-       const selectedCategory = categorySelect.value;
-       let countries = categories[selectedCategory];
-       countries = shuffleArray(countries).slice(0, 10);
-       mapElement.style.display = "block";
-       nextQuestion(countries);
-   });
-   ```
 
 2. **Show Instructions Event**:
    - **Description**: This event displays the instructions modal when the "Instructions" button is clicked, helping the player understand how to play the game.
-   ```javascript
-   showInstructionsButton.addEventListener("click", function () {
-       instructionsContainer.style.display = "block";
-   });
-   ```
 
 3. **Map Click Event**:
    - **Description**: This event captures clicks on the map, calculates the distance to the correct location, and determines if the player’s guess is accurate.
-   ```javascript
-   map.on("click", function (e) {
-       const distance = map.distance(e.latlng, correctCoords);
-       if (distance < 500000) {
-           alert("Correct! You earned points.");
-       } else {
-           alert("Incorrect! Try again.");
-       }
-   });
-   ```
+
 
 ## Closures
 
@@ -148,21 +119,11 @@ DOM (Document Object Model) interaction is key to updating the game interface dy
 
 ## Deployment
 
-The GeoGame project is deployed using **GitHub Pages**, making it accessible via a public URL. Here’s how the deployment process works:
+The GeoGame project is deployed using **GitHub Pages**, making it accessible via a public URL.
 
-1. **GitHub Repository**:  
-   All project files (HTML, CSS, JavaScript, and assets) are stored in a GitHub repository.
 
-2. **GitHub Pages Setup**:
-   - In your repository, go to **Settings** > **Pages**.
-   - Select the branch (usually `main` or `master`) and the folder (typically `/root`).
-   - GitHub automatically generates a live website from your repository.
-
-3. **Live URL**:  
-   The project is available at:  
-   [https://gmt-458-web-gis.github.io/geogame-Berkaynal/](https://gmt-458-web-gis.github.io/geogame-Berkaynal/)
-
-This deployment method ensures the game is easily accessible and can be shared with others.
+The project is available at:  
+[https://gmt-458-web-gis.github.io/geogame-Berkaynal/](https://gmt-458-web-gis.github.io/geogame-Berkaynal/)
 
 ## Layout Diagram
 
